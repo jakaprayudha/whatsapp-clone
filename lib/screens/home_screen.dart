@@ -81,6 +81,14 @@ class _HomeScreenState extends State<HomeScreen>
       ],
     );
   }
-  Widget _buildUpdates() {}
-  Widget _buildCalls() {}
+  Widget _buildUpdates() {
+    return const Center(
+      child:Text('Updates', style:TextStyle(fontSize:20),),
+    )
+  }
+  Widget _buildCalls() {
+    return const Center(
+      child:Text('Calls', style:TextStyle(fontSize:20),),
+    );
+  }
 }

@@ -11,6 +11,12 @@ class Avatar extends StatelessWidget {
       radius: size / 2,
       backgroundColor: Colors.grey.shade300,
       backgroundImage: NetworkImage(imageUrl),
+      onBackgroundImageError: (_, _) {},
+      child: Icon(
+        Icons.person,
+        size: size * 0.6,
+        color: Colors.grey.shade600,
+      ),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/dummy_chats.dart';
 import '../widgets/chat_tile.dart';
+import 'camera_screen.dart';
 import 'chat_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen>
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: _openCamera,
             icon: const Icon(Icons.camera_alt_outlined),
           ),
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
@@ -75,6 +76,18 @@ class _HomeScreenState extends State<HomeScreen>
         child: const Icon(Icons.chat),
       ),
     );
+  }
+
+  Future<void> _openCamera() async {
+    final photoPath = await Navigator.push<String>(
+      context,
+      MaterialPageRoute(builder: (_) => const CameraScreen()),
+    );
+    if (photoPath != null && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Foto berhasil diambil')),
+      );
+    }
   }
 
   Widget _buildChats() {
